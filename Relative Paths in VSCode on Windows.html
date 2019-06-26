@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Relative Paths</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Alex Mendiola: Coder Atom Feed" />
+        <link href="/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Alex Mendiola: Coder RSS Feed" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Alex Mendiola: Coder </a></h1>
+                <nav><ul>
+                    <li><a href="/pages/All about Alex.html">About</a></li>
+                    <li><a href="/pages/Code of Conduct Page.html">Code of Conduct</a></li>
+                    <li><a href="/category/intro.html">Intro</a></li>
+                    <li class="active"><a href="/category/posts.html">Posts</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/Relative Paths in VSCode on Windows.html" rel="bookmark"
+           title="Permalink to Relative Paths">Relative Paths</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-05-27T00:00:00-04:00">
+                Published: Mon 27 May 2019
+        </abbr>
+		<br />
+        <abbr class="modified" title="2019-05-27T00:00:00-04:00">
+                Updated: Mon 27 May 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex-mendiola.html">Alex Mendiola</a>
+        </address>
+<p>In <a href="/category/posts.html">Posts</a>.</p>
+<p>tags: <a href="/tag/python.html">Python</a> <a href="/tag/coding.html">Coding</a> </p>
+</footer><!-- /.post-info -->      <p>As I continue through the Python for Developers course offered by Mosh Hamedani, I noticed some odd behavior in Visual Studio Code. The relative paths that Mosh was describing returned an error in my code. At first, I solved the issue by creating a raw string. For instance,</p>
+<div class="highlight"><pre><span></span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;ecommerce&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>didn't work so I copied the full path and used the raw string.</p>
+<div class="highlight"><pre><span></span><span class="n">Path</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\rig\coding\python\codeEnv\Mosh\ecommerce&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>I realized later that I could use the relative path but I had to include the parent directory displayed in the file tab in Visual Studio Code. In my case...</p>
+<div class="highlight"><pre><span></span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;Mosh\ecommerce&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>worked just fine.</p>
+<p>So, if you're using Windows and Visual Studio Code, be sure to include any parent directories in the file tab when writing relative paths in Visual Studio.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://codewithmosh.com/">Code with Mosh</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+                            <li><a href="/feeds/all.rss.xml" type="application/rss+xml" rel="alternate">rss feed</a></li>
+
+                            <li><a href="https://github.com/kmannarbor">Github</a></li>
+                            <li><a href="https://www.linkedin.com/in/alexmendiola/">Linkedin</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCWqk6iBabEXpEQqNSY3BdSw">Youtube</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
