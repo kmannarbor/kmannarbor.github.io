@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alex Mendiola: Coder - Posts</title><link href="/" rel="alternate"></link><link href="/feeds/posts.atom.xml" rel="self"></link><id>/</id><updated>2019-05-27T00:00:00-04:00</updated><entry><title>Relative Paths</title><link href="/Relative%20Paths%20in%20VSCode%20on%20Windows.html" rel="alternate"></link><published>2019-05-27T00:00:00-04:00</published><updated>2019-05-27T00:00:00-04:00</updated><author><name>Alex Mendiola</name></author><id>tag:None,2019-05-27:/Relative Paths in VSCode on Windows.html</id><summary type="html">&lt;p&gt;Issues with relative paths in VSCode on Windows.&lt;/p&gt;</summary><content type="html">&lt;p&gt;As I continue through the Python for Developers course offered by Mosh Hamedani, I noticed some odd behavior in Visual Studio Code. The relative paths that Mosh was describing returned an error in my code. At first, I solved the issue by creating a raw string. For instance,&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alex Mendiola: Coder - Posts</title><link href="/" rel="alternate"></link><link href="/feeds/posts.atom.xml" rel="self"></link><id>/</id><updated>2019-06-26T00:00:00-04:00</updated><entry><title>Personal Coding Bootcamp</title><link href="/Personal%20Coding%20Bootcamp.html" rel="alternate"></link><published>2019-06-26T00:00:00-04:00</published><updated>2019-06-26T00:00:00-04:00</updated><author><name>Alex Mendiola</name></author><id>tag:None,2019-06-26:/Personal Coding Bootcamp.html</id><summary type="html">&lt;p&gt;Wherein I discuss my plans for summer coding competence...&lt;/p&gt;</summary><content type="html">&lt;p&gt;I am a high school English teacher by trade and my summer vacation has just begun. For the past couple of months I formulated plans to gain a working knowledge of software development. I selected Python as my initial language. I worked though the bulk of the Code with Mosh - Python for Developers course. And I added an SSD to my rig and installed Manjaro Linux for my development efforts.&lt;/p&gt;
+&lt;p&gt;Over the past two days, I built out my development setup on Manjaro and created this blog. It has been a struggle to develop a workflow for blogging that I feel will be efficient and effective. There are a few improvements to this blog that I have planned, but for now I need to get back to coding.&lt;/p&gt;
+&lt;p&gt;I've quickly reviewed the majority of the course that I have already completed. Today, I'll finish that review. My schedule for this Personal Coding Bootcamp is as follows:&lt;/p&gt;
+&lt;h3&gt;Monday - Friday&lt;/h3&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;8-8:30AM - Exercise&lt;/li&gt;
+    &lt;li&gt;8:30-10:30AM - Coding&lt;/li&gt;
+    &lt;li&gt;10:30-11AM - Break&lt;/li&gt;
+    &lt;li&gt;11AM - 1PM - Coding&lt;/li&gt;
+    &lt;li&gt;1-1:30PM - Lunch&lt;/li&gt;
+    &lt;li&gt;1:30-6PM - House Projects/Maker Projects/Reading&lt;/li&gt;
+    &lt;li&gt;2-4PM - optional 3rd coding block of 2 hours&lt;/li&gt;
+    &lt;li&gt;6-7PM - Dinner&lt;/li&gt;
+    &lt;li&gt;7-8PM - Gaming&lt;/li&gt;
+    &lt;li&gt;8-8:30 - Blog&lt;/li&gt;
+    &lt;li&gt;8:30 onward - Entertainment/Relaxation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As you can see, the goal is 4-6 hours of coding each day with a separate 30 mins to update this blog. Let's see how this plan survives battle.&lt;/p&gt;</content><category term="Coding"></category><category term="Bootcamp"></category></entry><entry><title>Relative Paths</title><link href="/Relative%20Paths%20in%20VSCode%20on%20Windows.html" rel="alternate"></link><published>2019-05-27T00:00:00-04:00</published><updated>2019-05-27T00:00:00-04:00</updated><author><name>Alex Mendiola</name></author><id>tag:None,2019-05-27:/Relative Paths in VSCode on Windows.html</id><summary type="html">&lt;p&gt;Issues with relative paths in VSCode on Windows.&lt;/p&gt;</summary><content type="html">&lt;p&gt;As I continue through the Python for Developers course offered by Mosh Hamedani, I noticed some odd behavior in Visual Studio Code. The relative paths that Mosh was describing returned an error in my code. At first, I solved the issue by creating a raw string. For instance,&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ecommerce&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 

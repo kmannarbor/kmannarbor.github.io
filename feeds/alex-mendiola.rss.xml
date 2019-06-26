@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Alex Mendiola: Coder - Alex Mendiola</title><link>/</link><description></description><lastBuildDate>Tue, 25 Jun 2019 00:00:00 -0400</lastBuildDate><item><title>Welcome</title><link>/Welcome%20to%20my%20blog!.html</link><description>&lt;h1&gt;Welcome!&lt;/h1&gt;
+<rss version="2.0"><channel><title>Alex Mendiola: Coder - Alex Mendiola</title><link>/</link><description></description><lastBuildDate>Wed, 26 Jun 2019 00:00:00 -0400</lastBuildDate><item><title>Personal Coding Bootcamp</title><link>/Personal%20Coding%20Bootcamp.html</link><description>&lt;p&gt;I am a high school English teacher by trade and my summer vacation has just begun. For the past couple of months I formulated plans to gain a working knowledge of software development. I selected Python as my initial language. I worked though the bulk of the Code with Mosh - Python for Developers course. And I added an SSD to my rig and installed Manjaro Linux for my development efforts.&lt;/p&gt;
+&lt;p&gt;Over the past two days, I built out my development setup on Manjaro and created this blog. It has been a struggle to develop a workflow for blogging that I feel will be efficient and effective. There are a few improvements to this blog that I have planned, but for now I need to get back to coding.&lt;/p&gt;
+&lt;p&gt;I've quickly reviewed the majority of the course that I have already completed. Today, I'll finish that review. My schedule for this Personal Coding Bootcamp is as follows:&lt;/p&gt;
+&lt;h3&gt;Monday - Friday&lt;/h3&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;8-8:30AM - Exercise&lt;/li&gt;
+    &lt;li&gt;8:30-10:30AM - Coding&lt;/li&gt;
+    &lt;li&gt;10:30-11AM - Break&lt;/li&gt;
+    &lt;li&gt;11AM - 1PM - Coding&lt;/li&gt;
+    &lt;li&gt;1-1:30PM - Lunch&lt;/li&gt;
+    &lt;li&gt;1:30-6PM - House Projects/Maker Projects/Reading&lt;/li&gt;
+    &lt;li&gt;2-4PM - optional 3rd coding block of 2 hours&lt;/li&gt;
+    &lt;li&gt;6-7PM - Dinner&lt;/li&gt;
+    &lt;li&gt;7-8PM - Gaming&lt;/li&gt;
+    &lt;li&gt;8-8:30 - Blog&lt;/li&gt;
+    &lt;li&gt;8:30 onward - Entertainment/Relaxation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As you can see, the goal is 4-6 hours of coding each day with a separate 30 mins to update this blog. Let's see how this plan survives battle.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alex Mendiola</dc:creator><pubDate>Wed, 26 Jun 2019 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:None,2019-06-26:/Personal Coding Bootcamp.html</guid><category>Coding</category><category>Bootcamp</category></item><item><title>Welcome</title><link>/Welcome%20to%20my%20blog!.html</link><description>&lt;h1&gt;Welcome!&lt;/h1&gt;
 
 &lt;p&gt;On this blog you will follow my journey from novice Python Developer to competent Developer (and perhaps beyond). I'll chronicle the challenges I come across in my learning and also showcase my projects as I build them. I plan to share my thinking as I move through various tutorials and project builds. My hope is that will help you better understand software development if you are a novice like me. As I progress, I also hope it shows you my dedication and increasing skill. &lt;/p&gt;
 &lt;blockquote&gt;"It's good to have an end to journey toward; but it is the journey that matters in the end." -Ernest Hemingway&lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alex Mendiola</dc:creator><pubDate>Tue, 25 Jun 2019 00:00:00 -0400</pubDate><guid isPermaLink="false">tag:None,2019-06-25:/Welcome to my blog!.html</guid><category>Welcome</category><category>Intro</category></item><item><title>Relative Paths</title><link>/Relative%20Paths%20in%20VSCode%20on%20Windows.html</link><description>&lt;p&gt;As I continue through the Python for Developers course offered by Mosh Hamedani, I noticed some odd behavior in Visual Studio Code. The relative paths that Mosh was describing returned an error in my code. At first, I solved the issue by creating a raw string. For instance,&lt;/p&gt;
