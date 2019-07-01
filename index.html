@@ -21,7 +21,143 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/Struggling with Character Frequency Code.html">Character Frequency Blues</a></h1>
+                    <h1 class="entry-title"><a href="/List, Sets, Dictionaries - Oh my!.html">Character Frequency Part 2</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2019-07-01T00:00:00-04:00">
+                Published: Mon 01 July 2019
+        </abbr>
+		<br />
+        <abbr class="modified" title="2019-07-01T00:00:00-04:00">
+                Updated: Mon 01 July 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex-mendiola.html">Alex Mendiola</a>
+        </address>
+<p>In <a href="/category/posts.html">Posts</a>.</p>
+<p>tags: <a href="/tag/coding.html">Coding</a> </p>
+</footer><!-- /.post-info --><p>Well, after a couple hours of puzziling, I did find a new solution to the common interview question:</p>
+<blockquote>Determine the most frequent character in the following string: "This is a common interview question."</blockquote>
+
+<p>Before I explain the "correct" solution, here's the second solution that I came up with today:</p>
+<div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;This is a common interview question&quot;</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+<span class="n">curr_count</span><span class="p">,</span> <span class="n">prev_count</span><span class="p">,</span> <span class="n">largest_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span>
+<span class="n">prev_name</span><span class="p">,</span> <span class="n">curr_name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">:</span>
+    <span class="n">curr_name</span> <span class="o">=</span> <span class="n">char</span>
+    <span class="n">curr_count</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">curr_name</span> <span class="o">==</span> <span class="n">prev_name</span><span class="p">:</span>
+        <span class="n">prev_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">curr_count</span> <span class="o">&lt;</span> <span class="n">prev_count</span><span class="p">:</span>
+            <span class="n">prev_name</span> <span class="o">=</span> <span class="n">char</span>
+            <span class="k">if</span> <span class="n">largest_count</span> <span class="o">&lt;</span> <span class="n">prev_count</span><span class="p">:</span>
+                <span class="n">largest_count</span> <span class="o">=</span> <span class="n">prev_count</span>
+                <span class="n">largest_name</span> <span class="o">=</span> <span class="n">char</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">curr_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">prev_name</span> <span class="o">=</span> <span class="n">char</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">prev_name</span> <span class="o">=</span> <span class="n">curr_name</span>
+        <span class="n">prev_count</span> <span class="o">=</span> <span class="n">curr_count</span>
+<span class="k">print</span><span class="p">(</span><span class="n">largest_name</span><span class="p">)</span>
+</pre></div>
+
+
+<p>In this code, I used a for loop with embedded if loops to determine a running count of the frequency of each character. This took into account memory usage (I think) in that it only iterates once through the string - after sorting, lowercasing, and stripping spaces. So, it iterates 4 times. Sheesh!</p>
+<p>After I accomplished the task of determining the most frequent character, I reviewed the solution in the tutorial. In an effort to retain the techniques used, I'll go through it step-by-step:</p>
+<p>First, we need to determine which data structure will be most appropriate for this task. Since we need to store not only the character, but also its frequency in the string, a dictionary will work best. Dictionaries are a collection of key value pairs. In this case our new empty dictionary - </p>
+<div class="highlight"><pre><span></span><span class="n">char_frequency</span> <span class="o">=</span> <span class="p">{}</span>
+</pre></div>
+
+
+<p>will store both the character and the frequency count of the character. We set it to empty because we will iterate over the sentence appending it with key value pairs based on the string and each character's frequency thusly: For each character, we verify whether or not it is already recorded in the list. If it does exist in the dictionary, we add 1 to the key value pair of the current character (a task I initially achieved through assigning variables to the current character or previous character's counts). If it does not yet exist in the dictionary, we add a key value pair for the new character.</p>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">char_frequency</span><span class="p">[</span><span class="n">char</span><span class="p">]</span>
+        <span class="n">char_frequency</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">char_frequency</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+
+
+<p>Now that we've iterated through the string once, we now have key value pairs for every character in the string stored in our char_frequency dictionary. The next step is to sort the items in the dictionary in descending order. </p>
+<div class="highlight"><pre><span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">char_frequency</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+
+
+<p>However, because dictionaries are collections of key value pairs, we need to specify which of the key values to sort by. In this case, a lambda function will help us do this. Lambda functions are one-time use functions. We use the lambda as a second argument to the sorted function (the first being the iterable char_frequency.items()). The sorted function's second argument must be a key, so we set that key to lambda. Lambdas take a key value pair (in this case kv) and a value (for this lambda we want the second key value in each pair or kv[1].)</p>
+<div class="highlight"><pre><span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">char_frequency</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">kv</span><span class="p">:</span><span class="n">kv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+
+<p>Now we have the list sorted in ascending order by the value of the key pair. But, we need to find the most frequent character, so we reverse the order of the list by calling the final argument of the sorted function by setting reverse equal to true.</p>
+<div class="highlight"><pre><span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">char_frequency</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">kv</span><span class="p">:</span><span class="n">kv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Okay, we are now able to print the first item in the list. To do this we assign a variable to this line of code and then print the first item in the list.</p>
+<div class="highlight"><pre><span></span><span class="n">char_frequency_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">char_frequency</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span>
+    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">kv</span><span class="p">:</span><span class="n">kv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="nb">sorted</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">char_frequency_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+
+<p>It is important to note, (as did my mentor) that this code does not take into account capitalization, special characters, spaces, or numbers. Capitalization can be dealt with through an additional iteration using the lower() function and spaces can be eliminated using the replace() function.</p>
+<div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>I haven't decided how to exclude special characters or numbers as the interview question does not specify that they should be omitted. I'll update this post when I determine the best way to do so.</p>
+<p>Here is the complete code from the tutorial's solution including my addition to deal with case-sensitivity and spaces:</p>
+<div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;This is a common interview question&quot;</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+<span class="n">char_frequency</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">char_frequency</span><span class="p">:</span>
+        <span class="n">char_frequency</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">char_frequency</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">char_frequency_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+    <span class="n">char_frequency</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span>
+    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">kv</span><span class="p">:</span><span class="n">kv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">char_frequency_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+
+<p>This second try at coding a solution highlights the adjustment that must be made when learning to code: operational thinking. I have yet to lock-in the necessary questioning pattern that would allow me to quickly and efficiently deal with new coding problems. However, I was able to (given enough time) create 2 working solutions to this particular problem. The second attempt took far less time to find than the first and it also minimized the iterations required to find and return the correct answer. In the future, I will ask the following questions as a starting point:</p>
+<ol>
+    <li>What is the best data structure to use in this case?</li>
+    <li>How do I establish the necessary structure?</li>
+    <li>How can I most efficiently iterate over the structure to find the solution?</li>
+    <li>What is the most effective method of returning the solution?</li>
+</ol>
+
+<p>This list will undoubtedly evolve over time and other lists may be needed to solve other types of problems. But, it looks like a good start.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/Struggling with Character Frequency Code.html" rel="bookmark"
+                           title="Permalink to Character Frequency Blues">Character Frequency Blues</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2019-06-28T00:00:00-04:00">
                 Published: Fri 28 June 2019
@@ -36,15 +172,10 @@
         </address>
 <p>In <a href="/category/posts.html">Posts</a>.</p>
 <p>tags: <a href="/tag/coding.html">Coding</a> <a href="/tag/struggles.html">Struggles</a> </p>
-</footer><!-- /.post-info --><p>As I review the coding challenges within Code with Mosh's <a href="https://codewithmosh.com/courses" target = "_blank">Python for Developers</a> course, the task of determining the most frequently used character in a string confounds me yet again. This time around, I'm able to more efficiently prepare the list of characters for counting, but storing the count of each character eludes me. </p>
-<p>I remember from working with my mentor Joey that my original situation required the string be read each time I counted each character. This got the job done, but was horribly inefficient. Therefore, this time around, I want to record a count only if a character repeats. That way, I only need to read the entire list once. </p>
-<p>This unit of the Python course was by far the most difficult for me to understand and implement. That's why I'm taking my time to rewatch the videos in this section. Another benefit is that I know the challenge as I watch these lessons and approach this second (and sometimes third, fourth, etc.) viewing through the lens of counting characters. I think the issue for me is understanding the typical/practical use cases for each of the techniques with regard to data structures. Furthermore, I need to grasp how the Python interpreter "thinks" about data structures and these methods of interacting with data. </p>
-<p>Joey also pointed out a big failing with the Python language: memory management. Given his role at his company, this is unsurprisingly top of mind for him. How do these procedures perform at scale? In this context, it is clear that I need to structure my code to run as efficiently as possible. Especially if I decide to specialize in Data Science! Building a great algorithm is secondary to delivering a product or analysis in a timely manner.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <p>Wherein I struggle - for the 2nd time - to write efficient code to count character frequency in a string.</p>
+                <a class="readmore" href="/Struggling with Character Frequency Code.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
