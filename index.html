@@ -21,7 +21,99 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/List, Sets, Dictionaries - Oh my!.html">Character Frequency Part 2</a></h1>
+                    <h1 class="entry-title"><a href="/Let's get efficient-ual!.html">Efficient Coding</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2019-07-03T00:00:00-04:00">
+                Published: Wed 03 July 2019
+        </abbr>
+		<br />
+        <abbr class="modified" title="2019-07-03T00:00:00-04:00">
+                Updated: Wed 03 July 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex-mendiola.html">Alex Mendiola</a>
+        </address>
+<p>In <a href="/category/posts.html">Posts</a>.</p>
+<p>tags: <a href="/tag/coding.html">Coding</a> </p>
+</footer><!-- /.post-info --><p>At the risk of drawing the ire of Zed A. Shaw, I'm going to discuss how I discovered a way to solve a coding problem more efficiently. Now, 'efficient' may not be the right word to describe what I was able to accomplish today. Perhaps a more apt descriptor would be shorter. It's my understanding that coders should strive to accomplish their goals with as little code as possible. (type <code>import this</code> into your python interpreter for the full manifesto.) So, if I can write a script in 4 lines instead of 10, I should do so. As my mentor once joked "You don't need to worry about memory management in Python. Python takes care of it for you." Apparently, this draws huge laughs with coders... I didn't get it.</p>
+<p>The task today was to write a script that takes the contents of one file and writes them to another file. Here's what Zed had me do first:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">argv</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">exists</span>
+
+<span class="n">script</span><span class="p">,</span> <span class="n">from_file</span><span class="p">,</span> <span class="n">to_file</span> <span class="o">=</span> <span class="n">argv</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Copying from {from_file} to {to_file}&quot;</span><span class="p">)</span>
+
+<span class="n">in_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">from_file</span><span class="p">)</span>
+<span class="n">indata</span> <span class="o">=</span> <span class="n">in_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;The input file is {len(indata)} bytes long&quot;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Does the output file exist? {exists(to_file)})</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Ready, hit RETURN to continue, CTRL-C to abort.&quot;</span><span class="p">)</span>
+<span class="nb">input</span><span class="p">()</span>
+
+<span class="n">out_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">to_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">indata</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Alright, all done.&quot;</span><span class="p">)</span>
+
+<span class="n">out_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">in_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Now, this gets the job done, but has a lot of unnecessary parts. I was tasked to eliminate as much of the code as possible. Essentially, I had to accomplish the same goal (copy the contents of one file to another) with as few lines of code as possible. The author boasted that he could do it in a single line of code (show-off). Now, I tinkered for a while and Googled around and was able to shrink it down to 2 lines of code (excepting the import and setting of argv). First, I needed to find a way to open and read the from_file. The above code did this through the variables in_file and indata. This also means that we have to use another variable (out_file) to write to the receiving file. And, finally, once we use the open() function it is best practice to close the files with the close() function. I started by removing all the print commands and any unnecessary function calls like len() and exists(). Now we were down to just 6 lines (excluding the import call and argv assignment).</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">argv</span>
+
+<span class="n">script</span><span class="p">,</span> <span class="n">from_file</span><span class="p">,</span> <span class="n">to_file</span> <span class="o">=</span> <span class="n">argv</span>
+
+<span class="n">in_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">from_file</span><span class="p">)</span>
+<span class="n">indata</span> <span class="o">=</span> <span class="n">in_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">out_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">to_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">indata</span><span class="p">)</span>
+
+<span class="n">out_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">in_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<p>I did some Googling on how to open and read a file in 1 line of code and found <a href="https://stackoverflow.com/questions/8011797/open-read-and-close-a-file-in-1-line-of-code" target=_blank>this</a>.</p>
+<div class="highlight"><pre><span></span><span class="p">[</span><span class="n">variable</span><span class="p">]</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filename.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+
+<p>I then, through trial and error was able to shrink the code down to the 2 lines of code below. Apparently, you don't need to close the file when using this type of notation. The reason I think this is that if you add out_file.close() it returns the following error:</p>
+<div class="highlight"><pre><span></span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;ex17.short.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">9</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">out_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;close&#39;</span>
+</pre></div>
+
+
+<p>In any case, here's the shortest script I could muster at my current level of understanding. Please <a href="mailto:mistermendiola@gmail.com">let me know</a> if you have other shorter solutions.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">argv</span>
+
+<span class="n">script</span><span class="p">,</span> <span class="n">from_file</span><span class="p">,</span> <span class="n">to_file</span> <span class="o">=</span> <span class="n">argv</span>
+
+<span class="n">indata</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">from_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">out_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">to_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">indata</span><span class="p">)</span>
+</pre></div>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/List, Sets, Dictionaries - Oh my!.html" rel="bookmark"
+                           title="Permalink to Character Frequency Part 2">Character Frequency Part 2</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2019-07-01T00:00:00-04:00">
                 Published: Mon 01 July 2019
@@ -36,120 +128,10 @@
         </address>
 <p>In <a href="/category/posts.html">Posts</a>.</p>
 <p>tags: <a href="/tag/coding.html">Coding</a> </p>
-</footer><!-- /.post-info --><p>Well, after a couple hours of puzziling, I did find a new solution to the common interview question:</p>
-<blockquote>Determine the most frequent character in the following string: "This is a common interview question."</blockquote>
-
-<p>Before I explain the "correct" solution, here's the second solution that I came up with today:</p>
-<div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;This is a common interview question&quot;</span>
-<span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-
-<span class="n">curr_count</span><span class="p">,</span> <span class="n">prev_count</span><span class="p">,</span> <span class="n">largest_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span>
-<span class="n">prev_name</span><span class="p">,</span> <span class="n">curr_name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span>
-<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">:</span>
-    <span class="n">curr_name</span> <span class="o">=</span> <span class="n">char</span>
-    <span class="n">curr_count</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">if</span> <span class="n">curr_name</span> <span class="o">==</span> <span class="n">prev_name</span><span class="p">:</span>
-        <span class="n">prev_count</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="n">curr_count</span> <span class="o">&lt;</span> <span class="n">prev_count</span><span class="p">:</span>
-            <span class="n">prev_name</span> <span class="o">=</span> <span class="n">char</span>
-            <span class="k">if</span> <span class="n">largest_count</span> <span class="o">&lt;</span> <span class="n">prev_count</span><span class="p">:</span>
-                <span class="n">largest_count</span> <span class="o">=</span> <span class="n">prev_count</span>
-                <span class="n">largest_name</span> <span class="o">=</span> <span class="n">char</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">pass</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">curr_count</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">prev_name</span> <span class="o">=</span> <span class="n">char</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">prev_name</span> <span class="o">=</span> <span class="n">curr_name</span>
-        <span class="n">prev_count</span> <span class="o">=</span> <span class="n">curr_count</span>
-<span class="k">print</span><span class="p">(</span><span class="n">largest_name</span><span class="p">)</span>
-</pre></div>
-
-
-<p>In this code, I used a for loop with embedded if loops to determine a running count of the frequency of each character. This took into account memory usage (I think) in that it only iterates once through the string - after sorting, lowercasing, and stripping spaces. So, it iterates 4 times. Sheesh!</p>
-<p>After I accomplished the task of determining the most frequent character, I reviewed the solution in the tutorial. In an effort to retain the techniques used, I'll go through it step-by-step:</p>
-<p>First, we need to determine which data structure will be most appropriate for this task. Since we need to store not only the character, but also its frequency in the string, a dictionary will work best. Dictionaries are a collection of key value pairs. In this case our new empty dictionary - </p>
-<div class="highlight"><pre><span></span><span class="n">char_frequency</span> <span class="o">=</span> <span class="p">{}</span>
-</pre></div>
-
-
-<p>will store both the character and the frequency count of the character. We set it to empty because we will iterate over the sentence appending it with key value pairs based on the string and each character's frequency thusly: For each character, we verify whether or not it is already recorded in the list. If it does exist in the dictionary, we add 1 to the key value pair of the current character (a task I initially achieved through assigning variables to the current character or previous character's counts). If it does not yet exist in the dictionary, we add a key value pair for the new character.</p>
-<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">char_frequency</span><span class="p">[</span><span class="n">char</span><span class="p">]</span>
-        <span class="n">char_frequency</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">char_frequency</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-</pre></div>
-
-
-<p>Now that we've iterated through the string once, we now have key value pairs for every character in the string stored in our char_frequency dictionary. The next step is to sort the items in the dictionary in descending order. </p>
-<div class="highlight"><pre><span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">char_frequency</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
-</pre></div>
-
-
-<p>However, because dictionaries are collections of key value pairs, we need to specify which of the key values to sort by. In this case, a lambda function will help us do this. Lambda functions are one-time use functions. We use the lambda as a second argument to the sorted function (the first being the iterable char_frequency.items()). The sorted function's second argument must be a key, so we set that key to lambda. Lambdas take a key value pair (in this case kv) and a value (for this lambda we want the second key value in each pair or kv[1].)</p>
-<div class="highlight"><pre><span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">char_frequency</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">kv</span><span class="p">:</span><span class="n">kv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-
-
-<p>Now we have the list sorted in ascending order by the value of the key pair. But, we need to find the most frequent character, so we reverse the order of the list by calling the final argument of the sorted function by setting reverse equal to true.</p>
-<div class="highlight"><pre><span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">char_frequency</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">kv</span><span class="p">:</span><span class="n">kv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-</pre></div>
-
-
-<p>Okay, we are now able to print the first item in the list. To do this we assign a variable to this line of code and then print the first item in the list.</p>
-<div class="highlight"><pre><span></span><span class="n">char_frequency_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">char_frequency</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span>
-    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">kv</span><span class="p">:</span><span class="n">kv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-    <span class="nb">sorted</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">char_frequency_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-
-
-<p>It is important to note, (as did my mentor) that this code does not take into account capitalization, special characters, spaces, or numbers. Capitalization can be dealt with through an additional iteration using the lower() function and spaces can be eliminated using the replace() function.</p>
-<div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-</pre></div>
-
-
-<p>I haven't decided how to exclude special characters or numbers as the interview question does not specify that they should be omitted. I'll update this post when I determine the best way to do so.</p>
-<p>Here is the complete code from the tutorial's solution including my addition to deal with case-sensitivity and spaces:</p>
-<div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;This is a common interview question&quot;</span>
-<span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-
-<span class="n">char_frequency</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">char_frequency</span><span class="p">:</span>
-        <span class="n">char_frequency</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">char_frequency</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="n">char_frequency_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
-    <span class="n">char_frequency</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span>
-    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">kv</span><span class="p">:</span><span class="n">kv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-    <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">char_frequency_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-
-
-<p>This second try at coding a solution highlights the adjustment that must be made when learning to code: operational thinking. I have yet to lock-in the necessary questioning pattern that would allow me to quickly and efficiently deal with new coding problems. However, I was able to (given enough time) create 2 working solutions to this particular problem. The second attempt took far less time to find than the first and it also minimized the iterations required to find and return the correct answer. In the future, I will ask the following questions as a starting point:</p>
-<ol>
-    <li>What is the best data structure to use in this case?</li>
-    <li>How do I establish the necessary structure?</li>
-    <li>How can I most efficiently iterate over the structure to find the solution?</li>
-    <li>What is the most effective method of returning the solution?</li>
-</ol>
-
-<p>This list will undoubtedly evolve over time and other lists may be needed to solve other types of problems. But, it looks like a good start.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <p>Wherein I discover a new solution... that is also not the correct one.</p>
+                <a class="readmore" href="/List, Sets, Dictionaries - Oh my!.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
