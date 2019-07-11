@@ -21,7 +21,40 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/Let's get efficient-ual!.html">Efficient Coding</a></h1>
+                    <h1 class="entry-title"><a href="/Frustration Station: All aboard!.html">Frustration Station</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2019-07-11T00:00:00-04:00">
+                Published: Thu 11 July 2019
+        </abbr>
+		<br />
+        <abbr class="modified" title="2019-07-11T00:00:00-04:00">
+                Updated: Thu 11 July 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/alex-mendiola.html">Alex Mendiola</a>
+        </address>
+<p>In <a href="/category/posts.html">Posts</a>.</p>
+<p>tags: <a href="/tag/coding.html">Coding</a> <a href="/tag/frustration.html">Frustration</a> </p>
+</footer><!-- /.post-info --><p>It's widely publicized that coding is frustrating. This phenomenon I have experienced since I began coding in high school. (Text adventures in BASIC. See: <a href="http://zorkonline.net/" target="_blank">Zork</a>) However, this week I flew by frustration and directly to despondancy, depression, and dispair.  </p>
+<p>Essentially, I don't know what I don't know. This is the default state of a software developer. Technologies change, evolve, and die. So, there is a perpetual blank spot in the knowledge of even the most seasoned developer. I've heard that the path to learning programming usually begins with a lot of "I don't know what this means" and "Why doesn't this work?" and "This doesn't make sense." until, one mystical day, you 'get it'. I have yet to reach that day. This week I struggled to complete a simple game I've been working on for the past couple of months - a variation of Rock, Paper, Scissors popularized by <a href="https://en.wikipedia.org/wiki/Sheldon_Cooper" targe="_blank">Sheldon Cooper</a> in <a href="https://www.cbs.com/shows/big_bang_theory/" target="_blank">The Big Bang Theory</a>. The regular version with only 3 options is fairly straightforward to program. An <code>python 
+if elif else</code> and you're basically done. However, with the addition of the two remaining options, 'Lizard' and 'Spock', it becomes far more difficult to elegantly code. </p>
+<p>Now, I know veteran (or even non-newbie) coders might scoff at that statement. But, please take it easy on this particular n00b's current perspective. I think part of the issue this week was that I have high expectations for my progress. I'm a smart guy. I've got a Master's degree. I'm tech savvy. My ego got the better of me. In addition, I have a tight timeline for myself. I have until the beginning of September or I'll have to decrease my studies significantly. This decrease in activity will undoubtedly slow my progress and I really don't want that.</p>
+<p>There is one definite effect of these expectations and my crippling frustration this week: I did not learn as much as I could in the time that I had. This is ironic because the very source of my frustration was the cause of its extension. Negative thinking is recursive and it's difficult to break that particular loop. It's also infectious. I found my frustration with coding permeate other areas of my life. I was short with family. I spent the majority of my time stewing. I was irritable to the extreme. Frankly, life's just too short for that sort of behavior. </p>
+<p>Moving forward, I have no idea how I will react to further frustration. I am certain I will continue to be frustrated by this particular vocation. However, I can endeavor to keep my reaction to it reasonable and reasonably short-lived. The proof is in the results of today's work. I was able to solve the issues with my game that had plagued me all week. How did I achieve this? I Googled. I mulled. I re-read my resources. I looked at similar code. Eventually, I was able to alter my code based on another's previous work so that the game functions exactly as I intended. In retrospect, all that fuss was merely a waste of my precious time. In the future, I would be well-advised to remember that. To all those out there who are also on this journey: be so advised.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/Let's get efficient-ual!.html" rel="bookmark"
+                           title="Permalink to Efficient Coding">Efficient Coding</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2019-07-03T00:00:00-04:00">
                 Published: Wed 03 July 2019
@@ -36,76 +69,10 @@
         </address>
 <p>In <a href="/category/posts.html">Posts</a>.</p>
 <p>tags: <a href="/tag/coding.html">Coding</a> </p>
-</footer><!-- /.post-info --><p>At the risk of drawing the ire of Zed A. Shaw, I'm going to discuss how I discovered a way to solve a coding problem more efficiently. Now, 'efficient' may not be the right word to describe what I was able to accomplish today. Perhaps a more apt descriptor would be shorter. It's my understanding that coders should strive to accomplish their goals with as little code as possible. (type <code>import this</code> into your python interpreter for the full manifesto.) So, if I can write a script in 4 lines instead of 10, I should do so. As my mentor once joked "You don't need to worry about memory management in Python. Python takes care of it for you." Apparently, this draws huge laughs with coders... I didn't get it.</p>
-<p>The task today was to write a script that takes the contents of one file and writes them to another file. Here's what Zed had me do first:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">argv</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">exists</span>
-
-<span class="n">script</span><span class="p">,</span> <span class="n">from_file</span><span class="p">,</span> <span class="n">to_file</span> <span class="o">=</span> <span class="n">argv</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Copying from {from_file} to {to_file}&quot;</span><span class="p">)</span>
-
-<span class="n">in_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">from_file</span><span class="p">)</span>
-<span class="n">indata</span> <span class="o">=</span> <span class="n">in_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;The input file is {len(indata)} bytes long&quot;</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Does the output file exist? {exists(to_file)})</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Ready, hit RETURN to continue, CTRL-C to abort.&quot;</span><span class="p">)</span>
-<span class="nb">input</span><span class="p">()</span>
-
-<span class="n">out_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">to_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
-<span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">indata</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Alright, all done.&quot;</span><span class="p">)</span>
-
-<span class="n">out_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">in_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-
-
-<p>Now, this gets the job done, but has a lot of unnecessary parts. I was tasked to eliminate as much of the code as possible. Essentially, I had to accomplish the same goal (copy the contents of one file to another) with as few lines of code as possible. The author boasted that he could do it in a single line of code (show-off). Now, I tinkered for a while and Googled around and was able to shrink it down to 2 lines of code (excepting the import and setting of argv). First, I needed to find a way to open and read the from_file. The above code did this through the variables in_file and indata. This also means that we have to use another variable (out_file) to write to the receiving file. And, finally, once we use the open() function it is best practice to close the files with the close() function. I started by removing all the print commands and any unnecessary function calls like len() and exists(). Now we were down to just 6 lines (excluding the import call and argv assignment).</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">argv</span>
-
-<span class="n">script</span><span class="p">,</span> <span class="n">from_file</span><span class="p">,</span> <span class="n">to_file</span> <span class="o">=</span> <span class="n">argv</span>
-
-<span class="n">in_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">from_file</span><span class="p">)</span>
-<span class="n">indata</span> <span class="o">=</span> <span class="n">in_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-
-<span class="n">out_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">to_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
-<span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">indata</span><span class="p">)</span>
-
-<span class="n">out_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">in_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-
-
-<p>I did some Googling on how to open and read a file in 1 line of code and found <a href="https://stackoverflow.com/questions/8011797/open-read-and-close-a-file-in-1-line-of-code" target=_blank>this</a>.</p>
-<div class="highlight"><pre><span></span><span class="p">[</span><span class="n">variable</span><span class="p">]</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filename.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</pre></div>
-
-
-<p>I then, through trial and error was able to shrink the code down to the 2 lines of code below. Apparently, you don't need to close the file when using this type of notation. The reason I think this is that if you add out_file.close() it returns the following error:</p>
-<div class="highlight"><pre><span></span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;ex17.short.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">9</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-    <span class="n">out_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;close&#39;</span>
-</pre></div>
-
-
-<p>In any case, here's the shortest script I could muster at my current level of understanding. Please <a href="mailto:mistermendiola@gmail.com">let me know</a> if you have other shorter solutions.</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">argv</span>
-
-<span class="n">script</span><span class="p">,</span> <span class="n">from_file</span><span class="p">,</span> <span class="n">to_file</span> <span class="o">=</span> <span class="n">argv</span>
-
-<span class="n">indata</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">from_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">out_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">to_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">indata</span><span class="p">)</span>
-</pre></div>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <p>Wherein I write about how I'm discovering ways to make my code more efficient.</p>
+                <a class="readmore" href="/Let's get efficient-ual!.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
